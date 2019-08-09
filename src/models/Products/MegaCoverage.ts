@@ -4,7 +4,8 @@ class MegaCoverage extends Product {
   static MAX_PRICE: number = 80;
 
   updatePrice(): number {
-    throw new Error("Method not implemented.");
+    //console.log('MegaCoverage: updatePrice');
+    return this.price;
   }  
 
   public getMaxPrice(): number {
