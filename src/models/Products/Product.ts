@@ -2,6 +2,8 @@ abstract class Product {
   protected _sellIn: number;
   protected _price: number;
   
+  static MAX_PRICE: number = 50;
+  
   public getSellIn(): number {
     return this._sellIn;
   }
@@ -10,7 +12,11 @@ abstract class Product {
     return this._price;
   }
 
-  abstract updatePrice(): number;
+  public getMaxPrice(): number {
+    return Product.MAX_PRICE;
+  }
+
+  abstract updatePrice(): number;  
 }
 
 export default Product;
