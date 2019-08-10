@@ -22,7 +22,9 @@ abstract class Product implements IPrice {
   }
 
   get price(): number {
-    return this._price;
+    return this._price < 0 
+      ? 0 
+      : this._price;
   }
 
   public getMaxPrice(): number {

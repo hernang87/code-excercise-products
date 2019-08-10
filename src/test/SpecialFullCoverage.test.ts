@@ -5,9 +5,15 @@ const updatePriceForDays = (days, fc) => {
   for (let i = 0; i < days; i++) fc.updatePrice();
 }
 
+type TestData = {
+  days: number;
+  sellIn: number;
+  price: number;
+}
+
 describe('SpecialFullCoverage Tests', () => {
-  let fc;
-  let tests = [{
+  let fc: SpecialFullCoverage;
+  const tests: TestData[] = [{
     days: 0,
     sellIn: 15,
     price: 20
@@ -57,8 +63,8 @@ describe('SpecialFullCoverage Tests', () => {
   it('should initialize the correct price', () => {
     expect(fc.price).to.equal(20);
   });
-  it('should not allow a price higher than 50', () => {
-    const name = 'Full Coverage';
+  it('should not have a price higher than 50', () => {
+    const name = 'Special Full Coverage';
     const sellIn = 0;
     const price = 85;
     fc = new SpecialFullCoverage(name, sellIn, price);
@@ -66,8 +72,17 @@ describe('SpecialFullCoverage Tests', () => {
     expect(fc.price).to.equal(50);
   });
 
+  it('should not have a price lower than 0', () => {
+    const name = 'Special Full Coverage';
+    const sellIn = 0;
+    const price = -5;
+    fc = new SpecialFullCoverage(name, sellIn, price);
 
-  tests.forEach((test) => {
+    expect(fc.price).to.equal(0);
+  });    
+
+
+  tests.forEach((test: TestData) => {
     it('should correctly update price after ' + test.days + ' days', () => {    
       updatePriceForDays(test.days, fc);      
       expect(fc.price).to.equal(test.price);

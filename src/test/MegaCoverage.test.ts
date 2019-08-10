@@ -5,9 +5,15 @@ const updatePriceForDays = (days, fc) => {
   for (let i = 0; i < days; i++) fc.updatePrice();
 }
 
+type TestData = {
+  sellIn: number;
+  price: number;
+}
+
+
 describe('MegaCoverage Tests', () => {
-  let fc;
-  let tests = [{
+  let fc: MegaCoverage;
+  const tests: TestData[] = [{
     sellIn: 0,
     price: 80
   }, {
@@ -35,14 +41,24 @@ describe('MegaCoverage Tests', () => {
     expect(fc.price).to.equal(80);
   });
 
-  it('should not allow a price higher than 80', () => {
+  it('should not have a price higher than 80', () => {
     const name = 'Mega Coverage';
     const sellIn = 0;
     const price = 85;
     fc = new MegaCoverage(name, sellIn, price);
 
     expect(fc.price).to.equal(80);
-  })
+  });
+
+  it('should not have a price lower than 0', () => {
+    const name = 'Full Coverage';
+    const sellIn = 0;
+    const price = -5;
+    fc = new MegaCoverage(name, sellIn, price);
+
+    expect(fc.price).to.equal(0);
+  });    
+
 
   tests.forEach((test, index) => {
     it('should correctly update price after ' + (index + 1) + ' days', () => {    
