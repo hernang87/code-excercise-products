@@ -60,7 +60,7 @@ describe('MegaCoverage Tests', () => {
   });    
 
 
-  tests.forEach((test, index) => {
+  tests.forEach((test: TestData, index: number) => {
     it('should correctly update price after ' + (index + 1) + ' days', () => {    
       updatePriceForDays(index + 1, fc);
       
