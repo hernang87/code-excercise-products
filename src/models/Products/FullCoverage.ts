@@ -1,6 +1,14 @@
 import Product from './Product';
 
 class FullCoverage extends Product {
+  constructor(name, sellIn, price) {
+    const p = price > FullCoverage.MAX_PRICE 
+    ? FullCoverage.MAX_PRICE
+    : price;
+
+    super(name, sellIn, p);
+  }
+
   updatePrice(): number {
     this._sellIn--;
 

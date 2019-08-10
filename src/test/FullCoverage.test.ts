@@ -14,6 +14,7 @@ describe('FullCoverage Tests', () => {
     let price = i > 1 
       ? 2 * i 
       : i + 1;
+
     tests.push({
       sellIn,
       price: price > 50 ? 50 : price
@@ -37,6 +38,14 @@ describe('FullCoverage Tests', () => {
   it('should initialize the correct price', () => {
     expect(fc.price).to.equal(0);
   });
+  it('should not allow a price higher than 50', () => {
+    const name = 'Full Coverage';
+    const sellIn = 0;
+    const price = 85;
+    fc = new FullCoverage(name, sellIn, price);
+
+    expect(fc.price).to.equal(50);
+  })
 
   tests.forEach((test, index) => {
     it('should correctly update price after ' + (index + 1) + ' days', () => {    
@@ -45,7 +54,7 @@ describe('FullCoverage Tests', () => {
       expect(fc.price).to.equal(test.price);
       expect(fc.sellIn).to.equal(test.sellIn);
     });
-  })
+  });
 
   
 });

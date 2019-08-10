@@ -3,8 +3,15 @@ import Product from './Product';
 class MegaCoverage extends Product {
   static MAX_PRICE: number = 80;
 
+  constructor(name, sellIn, price) {
+    const p = price > MegaCoverage.MAX_PRICE 
+      ? MegaCoverage.MAX_PRICE
+      : price;
+
+    super(name, sellIn, p);
+  }
+
   updatePrice(): number {
-    //console.log('MegaCoverage: updatePrice');
     return this.price;
   }  
 

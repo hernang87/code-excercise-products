@@ -1,3 +1,3 @@
 export default interface IPrice {
-  updatePrice(): number; 
+  updatePrice(): void; 
 }
