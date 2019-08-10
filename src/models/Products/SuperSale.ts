@@ -1,7 +1,7 @@
 import Product from './Product';
 
 class SuperSale extends Product {  
-  constructor(name, sellIn, price) {
+  constructor(nname: String, sellIn: number, price: number) {
     const p = price > SuperSale.MAX_PRICE 
     ? SuperSale.MAX_PRICE
     : price;

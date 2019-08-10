@@ -7,7 +7,7 @@ abstract class Product implements IPrice {
   
   static MAX_PRICE: number = 50;
 
-  constructor(name, sellIn, price) {
+  constructor(name: String, sellIn: number, price: number) {
     this._name = name;
     this._sellIn = sellIn;
     this._price = price;

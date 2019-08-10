@@ -1,7 +1,7 @@
 import SuperSale from '../models/Products/SuperSale';
 import { expect } from 'chai';
 
-const updatePriceForDays = (days, fc) => {
+const updatePriceForDays = (days: number, fc: SuperSale) => {
   for (let i = 0; i < days; i++) fc.updatePrice();
 }
 

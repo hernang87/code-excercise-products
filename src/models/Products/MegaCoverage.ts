@@ -3,7 +3,7 @@ import Product from './Product';
 class MegaCoverage extends Product {
   static MAX_PRICE: number = 80;
 
-  constructor(name, sellIn, price) {
+  constructor(name: String, sellIn: number, price: number) {
     const p = price > MegaCoverage.MAX_PRICE 
       ? MegaCoverage.MAX_PRICE
       : price;

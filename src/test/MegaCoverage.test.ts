@@ -1,7 +1,7 @@
 import MegaCoverage from '../models/Products/MegaCoverage';
 import { expect } from 'chai';
 
-const updatePriceForDays = (days, fc) => {
+const updatePriceForDays = (days: number, fc: MegaCoverage) => {
   for (let i = 0; i < days; i++) fc.updatePrice();
 }
 

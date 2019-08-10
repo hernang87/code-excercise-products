@@ -1,7 +1,7 @@
 import Product from './Product';
 
 class FullCoverage extends Product {
-  constructor(name, sellIn, price) {
+  constructor(name: String, sellIn: number, price: number) {
     const p = price > FullCoverage.MAX_PRICE 
     ? FullCoverage.MAX_PRICE
     : price;

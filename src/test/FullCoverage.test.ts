@@ -1,7 +1,7 @@
 import FullCoverage from '../models/Products/FullCoverage';
 import { expect } from 'chai';
 
-const updatePriceForDays = (days, fc) => {
+const updatePriceForDays = (days: number, fc: FullCoverage) => {
   for (let i = 0; i < days; i++) fc.updatePrice();
 }
 
